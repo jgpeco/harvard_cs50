@@ -1,0 +1,1 @@
+SELECT name from (SELECT name FROM (movies JOIN stars ON movies.id = stars.movie_id) JOIN people ON people.id = stars.person_id WHERE movies.id IN (SELECT movies.id FROM (movies JOIN stars ON movies.id = stars.movie_id) JOIN people ON people.id = stars.person_id WHERE name="Kevin Bacon" and birth=1958) Group By name) WHERE name IS NOT "Kevin Bacon"
