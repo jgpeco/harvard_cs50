@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <form method='POST' action='/add'>
+        <input id='task' name='task' type="text" placeholder='Task Name'>
+        <input type="submit" disabled>
+    </form>
+
+    <script>
+        const task = document.querySelector('#task')
+        const submit = document.querySelector('input[type="submit"]')
+
+        task.onkeypress = function() {
+            if(task.value === ''){
+                submit.disabled = true
+            } else {
+                submit.disabled = false
+            }
+        }
+
+    </script>
+{% endblock %}
