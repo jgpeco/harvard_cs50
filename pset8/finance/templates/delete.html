@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Delete Account
+{% endblock %}
+
+{% block main %}
+    <p class="delete-alert">Are you sure you want to delete your account? This action is irreversible.</p>
+    <form action="/delete" method="POST">
+              <button class="btn btn-danger" type="submit" style="padding: 0.5rem 2rem;">Delete Account</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome, {{userInfo.name}}!</h1>
+    <p>Those are your current stocks, values and cash:</p>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Stock</th>
+                    <th>Shares</th>
+                    <th>Current Price</th>
+                    <th>Total of Holdings</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks: %}
+                     <tr>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.shares}}</td>
+                        <td>{{stock.currentPrice}}</td>
+                        <td>{{stock.totalHoldings}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Current Cash</th>
+                    <th>Grand Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                     <tr>
+                        <td>{{userInfo.cash}}</td>
+                        <td>{{userInfo.grandTotal}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <div>
+                <form action='/delete' method='get'>
+                    <button class='btn btn-danger' type='submit'> Delete Account </button>
+                </form>
+        </div>
+{% endblock %}

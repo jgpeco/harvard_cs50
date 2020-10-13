@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+
+    <h1>Transactions History</h1>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Stock</th>
+                    <th>Shares</th>
+                    <th>Single Stock Price</th>
+                    <th>Total Stocks Price</th>
+                    <th>Date of Transaction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in history: %}
+                     <tr>
+                        <td>{{stock.type}}</td>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.shares}}</td>
+                        <td>{{stock.stockPrice}}</td>
+                        <td>{{stock.totalPrice}}</td>
+                        <td>{{stock.date}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
